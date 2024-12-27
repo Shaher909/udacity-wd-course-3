@@ -1,6 +1,6 @@
 /* Global Variables */
 let apiBaseUrl = "https://api.openweathermap.org/data/2.5/weather";
-let apiKey = "54e0ec609b34d950268ee4f593e312fe";
+let apiKey = "";
 
 /* API call structure
  https://api.openweathermap.org/data/2.5/weather?zip={zip code},{country code}&appid={API key}
