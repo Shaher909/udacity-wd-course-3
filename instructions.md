@@ -8,8 +8,8 @@ For this project, most code would be written at:
 ## Suggested steps
 
 - Setup env -> install: Node, Express and CORS -> OK
-- Setup server and ensure it's running ->
-- Create a GET request to return `projectData`from the server
+- Setup server and ensure it's running -> OK
+- Create a GET request to return `projectData`from the server -> OK
 - Create a POST request to add incoming data to `projectData` (post should expect: temp, date, user response)
 - Acquire API key from OpenWeatherMap website. Use your credentials and the base url to create global variables at the top of your `app.js` code.
 - Write an async function in app.js that uses fetch() to make a GET request to the OpenWeatherMap API.

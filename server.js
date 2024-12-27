@@ -23,3 +23,8 @@ app.use(express.static("website"));
 app.listen(8080, function () {
   console.log("Example app listening on port 8080!");
 });
+
+// GET request to return `projectData`from the server
+app.get("/all", function (req, res) {
+  res.send(projectData);
+});
