@@ -28,3 +28,16 @@ app.listen(8080, function () {
 app.get("/all", function (req, res) {
   res.send(projectData);
 });
+
+// POST request to add incoming data to `projectData`
+app.post("/add", function (req, res) {
+  const { temperature, date, userResponse } = req.body;
+
+  // Check if all required fields are present and provide an error if not
+  if (!temperature || !date || !userResponse) {
+    return res.status(400).send("Missing required fields");
+  }
+
+  projectData = { temperature, date, userResponse };
+  res.send("POST received");
+});
