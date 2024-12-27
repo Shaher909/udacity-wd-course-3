@@ -10,9 +10,9 @@ For this project, most code would be written at:
 - Setup env -> install: Node, Express and CORS -> OK
 - Setup server and ensure it's running -> OK
 - Create a GET request to return `projectData`from the server -> OK
-- Create a POST request to add incoming data to `projectData` (post should expect: temp, date, user response)
-- Acquire API key from OpenWeatherMap website. Use your credentials and the base url to create global variables at the top of your `app.js` code.
-- Write an async function in app.js that uses fetch() to make a GET request to the OpenWeatherMap API.
+- Create a POST request to add incoming data to `projectData` (post should expect: temp, date, user response) -> OK
+- Acquire API key from OpenWeatherMap website. Use your credentials and the base url to create global variables at the top of your `app.js` code. -> OK
+- Write an async function in app.js that uses fetch() to make a GET request to the OpenWeatherMap API. -OK
 - Create an event listener for the element with the id: generate, with a callback function to execute when it is clicked.
 - Inside that callback function call your async GET request with the parameters:
   -- base url
