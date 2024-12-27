@@ -13,8 +13,8 @@ For this project, most code would be written at:
 - Create a POST request to add incoming data to `projectData` (post should expect: temp, date, user response) -> OK
 - Acquire API key from OpenWeatherMap website. Use your credentials and the base url to create global variables at the top of your `app.js` code. -> OK
 - Write an async function in app.js that uses fetch() to make a GET request to the OpenWeatherMap API. -OK
-- Create an event listener for the element with the id: generate, with a callback function to execute when it is clicked.
-- Inside that callback function call your async GET request with the parameters:
+- Create an event listener for the element with the id: generate, with a callback function to execute when it is clicked. -OK
+- Inside that callback function call your async GET request with the parameters: - OK
   -- base url
   -- user entered zip code (see input in html with id zip)
   -- personal API key
