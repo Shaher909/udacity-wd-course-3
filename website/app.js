@@ -10,11 +10,20 @@ let apiKey = "54e0ec609b34d950268ee4f593e312fe";
 let d = new Date();
 let newDate = d.getMonth() + "." + d.getDate() + "." + d.getFullYear();
 
-//async function in app.js that uses fetch() to make a GET request to the OpenWeatherMap API.
+// Event listener to generate button
+const generateButton = document.getElementById("generate");
+generateButton.addEventListener("click", performAction);
 
-const getWeatherData = async (zipCode, countryCode) => {
+// Function called by event listener and call the getWeatherData, country is not an existing field when it's empty US is used.
+function performAction(e) {
+  const userZipCode = document.getElementById("zip").value;
+  getWeatherData(userZipCode, "", apiBaseUrl);
+}
+
+//async function in app.js that uses fetch() to make a GET request to the OpenWeatherMap API.
+const getWeatherData = async (zipCode, countryCode, url) => {
   const res = await fetch(
-    `${apiBaseUrl}?zip=${zipCode},${countryCode}&appid=${apiKey}`
+    `${url}?zip=${zipCode},${countryCode}&appid=${apiKey}`
   );
   try {
     const data = await res.json();
