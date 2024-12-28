@@ -51,7 +51,6 @@ function addNewRecord(req, res){
 
   projectData.push(newRecord)
   res.send(projectData)
-  console.log(projectData)
 }
 
 // GET request to return `projectData`from the server

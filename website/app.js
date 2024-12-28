@@ -1,6 +1,6 @@
 /* Global Variables */
 let apiBaseUrl = "https://api.openweathermap.org/data/2.5/weather";
-let apiKey = "";
+let apiKey = "54e0ec609b34d950268ee4f593e312fe";
 
 /* API call structure
  https://api.openweathermap.org/data/2.5/weather?zip={zip code},{country code}&appid={API key}
@@ -10,7 +10,6 @@ let apiKey = "";
 let d = new Date();
 //let newDate = d.getMonth() + "." + d.getDate() + "." + d.getFullYear();
 let newDate = d.toLocaleDateString();
-console.log(newDate);
 
 // Event listener to generate button
 const generateButton = document.getElementById("generate");
@@ -37,7 +36,6 @@ const getWeatherData = async (zipCode, countryCode, url) => {
   );
   try {
     const data = await res.json();
-    console.log("step 1:" + data);
     return data;
   } catch (error) {
     console.log("Error: API connection failed, additional information:", error);
@@ -58,7 +56,6 @@ const postData = async (url, dataRecord) => {
   
   try {
     const newData = await response.json();
-    console.log("step 2:" + newData);
     return newData;
   }catch(error){
     console.log("Error", error);
@@ -67,7 +64,6 @@ const postData = async (url, dataRecord) => {
 
 //Update UI with latest record after it's returned from the server
 const updateUI = async () => {
-  console.log("step 3:")
   const response = await fetch ('/all');
   try{
     const projectData = await response.json();
