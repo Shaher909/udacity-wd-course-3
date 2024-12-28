@@ -1,6 +1,6 @@
 /* Global Variables */
 let apiBaseUrl = "https://api.openweathermap.org/data/2.5/weather";
-let apiKey = "54e0ec609b34d950268ee4f593e312fe";
+let apiKey = "";
 
 /* API call structure
  https://api.openweathermap.org/data/2.5/weather?zip={zip code},{country code}&appid={API key}
@@ -24,9 +24,10 @@ function performAction(e) {
   getWeatherData(userZipCode, "", apiBaseUrl)
   .then(function(data){
   //calling post data function
-  postData('/newRecord', {weatherTitle: data.weather[0].main, weatherDescription: data.weather[0].description, tempreture: data.main.temp, date: newDate, feeling: userFeeling })
+  postData('/newRecord', {weatherTitle: data.weather[0].main, weatherDescription: data.weather[0].description, tempreture: data.main.temp, date: newDate, feeling: userFeeling });
+  //calling update UI
+  updateUI()
   })
-  
 }
 
 //async function in app.js that uses fetch() to make a GET request to the OpenWeatherMap API.
@@ -36,7 +37,7 @@ const getWeatherData = async (zipCode, countryCode, url) => {
   );
   try {
     const data = await res.json();
-    console.log(data);
+    console.log("step 1:" + data);
     return data;
   } catch (error) {
     console.log("Error: API connection failed, additional information:", error);
@@ -57,9 +58,24 @@ const postData = async (url, dataRecord) => {
   
   try {
     const newData = await response.json();
-    console.log(newData);
+    console.log("step 2:" + newData);
     return newData;
   }catch(error){
     console.log("Error", error);
+  }
+}
+
+//Update UI with latest record after it's returned from the server
+const updateUI = async () => {
+  console.log("step 3:")
+  const response = await fetch ('/all');
+  try{
+    const projectData = await response.json();
+    document.getElementById('date').innerHTML = `Date: ${projectData[0].date}`;
+    document.getElementById('weather-title').innerHTML = `Weather's forecast: ${projectData[0].weatherDescription}`;
+    document.getElementById('temp').innerHTML = `Temperature: ${projectData[0].tempreture}`;
+    document.getElementById('content').innerHTML = `User's feeling for today: ${projectData[0].feeling}`;
+  }catch(error){
+    console.log("error", error);
   }
 }

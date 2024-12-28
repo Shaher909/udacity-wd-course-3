@@ -24,11 +24,6 @@ app.listen(8080, function () {
   console.log("Example app listening on port 8080!");
 });
 
-// GET request to return `projectData`from the server
-app.get("/all", function (req, res) {
-  res.send(projectData);
-});
-
 // POST request to add incoming data to `projectData`
 app.post("/add", function (req, res) {
   const { temperature, date, userResponse } = req.body;
@@ -58,3 +53,8 @@ function addNewRecord(req, res){
   res.send(projectData)
   console.log(projectData)
 }
+
+// GET request to return `projectData`from the server
+app.get("/all", function (req, res) {
+  res.send(projectData);
+});
