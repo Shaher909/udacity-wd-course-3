@@ -18,12 +18,12 @@ For this project, most code would be written at:
   -- base url
   -- user entered zip code (see input in html with id zip)
   -- personal API key
-- After your successful retrieval of the weather data, you will need to chain another Promise that makes a POST request to add the API data, as well as data entered by the user, to your app.
+- After your successful retrieval of the weather data, you will need to chain another Promise that makes a POST request to add the API data, as well as data entered by the user, to your app. -OK
   -- You will need to write another async function to make this POST request.
   -- The function should receive a path and a data object.
   -- The data object should include: temp, date, user response.
   -- Remember, you can access the value of DOM elements by selecting them in your JS code.
-- Finally, chain another Promise that updates the UI dynamically Write another async function that is called after the completed POST request. This function should retrieve data from our app, select the necessary elements on the DOM (index.html), and then update their necessary values to reflect the dynamic values for: temp,date, user input.
+- Finally, chain another Promise that updates the UI dynamically Write another async function that is called after the completed POST request. This function should retrieve data from our app, select the necessary elements on the DOM (index.html), and then update their necessary values to reflect the dynamic values for: temp,date, user input. -OK
 
 ## Notes:
 
