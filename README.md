@@ -1,10 +1,18 @@
 # Weather-Journal App Project
 
 ## Overview
-This project requires you to create an asynchronous web app that uses Web API and user data to dynamically update the UI. 
+
+This project includes an asynchronous web app that uses Web API and user data to dynamically update the UI.
 
 ## Instructions
-This will require modifying the `server.js` file and the `website/app.js` file. You can see `index.html` for element references, and once you are finished with the project steps, you can use `style.css` to style your application to customized perfection.
 
-## Extras
-If you are interested in testing your code as you go, you can use `tests.js` as a template for writing and running some basic tests for your code.
+The structure is quite simple, the code is included in the `server.js` file and the `website/app.js` file. The markup can be found inside the `index.html`file and layout in the `style.css` file.
+
+## Additional Info
+
+For sake of simplicity and the API structure, the weather is fetched for United States, hence for testing you can use of the following postcodes (or any valid US zip code) and valid results should be returned:
+
+- 22313
+- 30040
+- 45040
+- 11220
