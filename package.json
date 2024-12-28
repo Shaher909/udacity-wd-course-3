@@ -1,0 +1,10 @@
+{
+  "name": "udacity-wd-course-3",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {},
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}
