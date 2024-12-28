@@ -8,7 +8,9 @@ let apiKey = "54e0ec609b34d950268ee4f593e312fe";
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth() + "." + d.getDate() + "." + d.getFullYear();
+//let newDate = d.getMonth() + "." + d.getDate() + "." + d.getFullYear();
+let newDate = d.toLocaleDateString();
+console.log(newDate);
 
 // Event listener to generate button
 const generateButton = document.getElementById("generate");
@@ -22,7 +24,7 @@ function performAction(e) {
   getWeatherData(userZipCode, "", apiBaseUrl)
   .then(function(data){
   //calling post data function
-  postData('/newRecord', {weatherTitle: data.weather[0].main, weatherDescription: data.weather[0].description, feeling: userFeeling })
+  postData('/newRecord', {weatherTitle: data.weather[0].main, weatherDescription: data.weather[0].description, tempreture: data.main.temp, date: newDate, feeling: userFeeling })
   })
   
 }

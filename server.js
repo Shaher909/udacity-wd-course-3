@@ -49,6 +49,8 @@ function addNewRecord(req, res){
   newRecord = {
     weatherTitle: req.body.weatherTitle,
     weatherDescription: req.body.weatherDescription,
+    tempreture: req.body.tempreture,
+    date: req.body.date,
     feeling: req.body.feeling
   }
 
