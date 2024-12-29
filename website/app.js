@@ -1,5 +1,5 @@
 /* Global Variables */
-let apiBaseUrl = "https://api.openweathermap.org/data/2.5/weather";
+let apiBaseUrl = "https://api.openweathermap.org/data/2.5/weather?units=imperial";
 let apiKey = "54e0ec609b34d950268ee4f593e312fe";
 
 /* API call structure
@@ -32,7 +32,7 @@ function performAction(e) {
 //async function in app.js that uses fetch() to make a GET request to the OpenWeatherMap API.
 const getWeatherData = async (zipCode, countryCode, url) => {
   const res = await fetch(
-    `${url}?zip=${zipCode},${countryCode}&appid=${apiKey}`
+    `${url}&zip=${zipCode},${countryCode}&appid=${apiKey}`
   );
   try {
     const data = await res.json();
