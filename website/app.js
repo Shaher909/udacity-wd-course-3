@@ -1,6 +1,6 @@
 /* Global Variables */
-let apiBaseUrl = "https://api.openweathermap.org/data/2.5/weather?units=imperial";
-let apiKey = "54e0ec609b34d950268ee4f593e312fe";
+const apiBaseUrl = "https://api.openweathermap.org/data/2.5/weather?units=imperial";
+const apiKey = "54e0ec609b34d950268ee4f593e312fe";
 
 /* API call structure
  https://api.openweathermap.org/data/2.5/weather?zip={zip code},{country code}&appid={API key}
