@@ -69,7 +69,7 @@ const updateUI = async () => {
     const projectData = await response.json();
     document.getElementById('date').innerHTML = `Date: ${projectData.date}`;
     document.getElementById('weather-title').innerHTML = `Weather's forecast: ${projectData.weatherDescription}`;
-    document.getElementById('temp').innerHTML = `Temperature: ${projectData.tempreture}`;
+    document.getElementById('temp').innerHTML = `Temperature: ${Math.round(projectData.tempreture)}`;
     document.getElementById('content').innerHTML = `User's feeling for today: ${projectData.feeling}`;
   }catch(error){
     console.log("error", error);
