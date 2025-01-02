@@ -1,6 +1,7 @@
 /* Global Variables */
-const apiBaseUrl = "https://api.openweathermap.org/data/2.5/weather?units=imperial";
-const apiKey = "54e0ec609b34d950268ee4f593e312fe";
+const apiBaseUrl =
+  "https://api.openweathermap.org/data/2.5/weather?units=imperial";
+const apiKey = "";
 
 /* API call structure
  https://api.openweathermap.org/data/2.5/weather?zip={zip code},{country code}&appid={API key}
@@ -20,13 +21,18 @@ function performAction(e) {
   const userZipCode = document.getElementById("zip").value;
   const userFeeling = document.getElementById("feelings").value;
 
-  getWeatherData(userZipCode, "", apiBaseUrl)
-  .then(function(data){
-  //calling post data function
-  postData('/newRecord', {weatherTitle: data.weather[0].main, weatherDescription: data.weather[0].description, tempreture: data.main.temp, date: newDate, feeling: userFeeling });
-  //calling update UI
-  updateUI()
-  })
+  getWeatherData(userZipCode, "", apiBaseUrl).then(function (data) {
+    //calling post data function
+    postData("/newRecord", {
+      weatherTitle: data.weather[0].main,
+      weatherDescription: data.weather[0].description,
+      tempreture: data.main.temp,
+      date: newDate,
+      feeling: userFeeling,
+    });
+    //calling update UI
+    updateUI();
+  });
 }
 
 //async function in app.js that uses fetch() to make a GET request to the OpenWeatherMap API.
@@ -44,7 +50,6 @@ const getWeatherData = async (zipCode, countryCode, url) => {
 
 //post data function
 const postData = async (url, dataRecord) => {
-
   const response = await fetch(url, {
     method: "POST",
     credentials: "same-origin",
@@ -53,25 +58,31 @@ const postData = async (url, dataRecord) => {
     },
     body: JSON.stringify(dataRecord),
   });
-  
+
   try {
     const newData = await response.json();
     return newData;
-  }catch(error){
+  } catch (error) {
     console.log("Error", error);
   }
-}
+};
 
 //Update UI with latest record after it's returned from the server
 const updateUI = async () => {
-  const response = await fetch ('/all');
-  try{
+  const response = await fetch("/all");
+  try {
     const projectData = await response.json();
-    document.getElementById('date').innerHTML = `Date: ${projectData.date}`;
-    document.getElementById('weather-title').innerHTML = `Weather's forecast: ${projectData.weatherDescription}`;
-    document.getElementById('temp').innerHTML = `Temperature: ${Math.round(projectData.tempreture)}`;
-    document.getElementById('content').innerHTML = `User's feeling for today: ${projectData.feeling}`;
-  }catch(error){
+    document.getElementById("date").innerHTML = `Date: ${projectData.date}`;
+    document.getElementById(
+      "weather-title"
+    ).innerHTML = `Weather's forecast: ${projectData.weatherDescription}`;
+    document.getElementById("temp").innerHTML = `Temperature: ${Math.round(
+      projectData.tempreture
+    )}`;
+    document.getElementById(
+      "content"
+    ).innerHTML = `User's feeling for today: ${projectData.feeling}`;
+  } catch (error) {
     console.log("error", error);
   }
-}
+};
